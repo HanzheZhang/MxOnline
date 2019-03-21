@@ -4,7 +4,9 @@ from django.db import models
 
 # Create your models here.
 class Course(models.Model):
-
+    '''
+    课程表
+    '''
     DEGREE_CHOICES = (
         ("cj", "初级"),
         ("zj", "中级"),
@@ -33,6 +35,9 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
+    '''
+    章节信息
+    '''
     course = models.ForeignKey(Course, verbose_name="课程", \
                                on_delete=models.CASCADE)
     name = models.CharField(verbose_name="章节名", max_length=100)
@@ -48,6 +53,9 @@ class Lesson(models.Model):
 
 
 class Video(models.Model):
+    '''
+    视频
+    '''
     lesson = models.ForeignKey(Lesson, verbose_name="章节", \
                                on_delete=models.CASCADE)
     name = models.CharField(verbose_name="视频名", max_length=100)
@@ -58,7 +66,10 @@ class Video(models.Model):
         verbose_name_plural = verbose_name
 
 
-class CourseResourse(models.Model):
+class CourseResource(models.Model):
+    '''
+    课程资源
+    '''
     course = models.ForeignKey(Course, verbose_name="课程", \
                                on_delete=models.CASCADE)
     name = models.CharField(verbose_name="名称", max_length=100)
