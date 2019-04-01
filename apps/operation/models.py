@@ -6,7 +6,7 @@ from users.models import UserProfile
 from course.models import Course
 
 # Create your models here.
-class UseAsk(models.Model):
+class UserAsk(models.Model):
     '''
     用户咨询
     '''
